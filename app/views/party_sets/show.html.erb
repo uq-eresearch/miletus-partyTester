@@ -1,0 +1,41 @@
+<% content_for(:heading) do "Test set: #{@party_set.name}" end %>
+
+<p id="notice"><%= notice %></p>
+
+<p><%= @party_set.notes %></p>
+
+<table>
+  <thead>
+    <tr>
+      <th>RIF-CS key</th>
+      <th colspan="2">Name</th>
+      <th>Description</th>
+      <th>Person identifier</th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% prev_ident = nil
+  @set_records.each do |party_record|
+    if prev_ident == party_record.testident
+      same = ' class="same"'
+    else
+      same = ' class="differnt"'
+    end
+    prev_ident = party_record.testident
+ %>
+  <tr>
+    <td><%= link_to party_record.key, party_record,
+            { :title => "Updated: #{party_record.updated_at}"} %></td>
+    <td><%= party_record.forename %></td>
+    <td><%= party_record.surname %></td>
+    <td><%= party_record.description %></td>
+    <td<%= raw(same) %>><%= party_record.testident %></td>
+  </tr>
+<% end %>
+  </tbody>
+</table>
+
+<div id="add"><%= link_to 'New party record', new_party_record_path(:set => @party_set.id) %></div>
+
+<div id="edit"><%= link_to 'Edit set', edit_party_set_path(@party_set) %></div>

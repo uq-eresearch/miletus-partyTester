@@ -1,0 +1,5 @@
+== Party Tester
+
+Simple Web application to create party records for testing.
+
+See the public/index.html file for more details.

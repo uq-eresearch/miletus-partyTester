@@ -1,0 +1,138 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *
+ *= require_self
+ *= require_tree .
+ */
+
+body {
+ margin: 0; border: 0; padding: 0;
+}
+
+div#header {
+ display: block;
+ background: lightgrey;
+ margin: 0;
+ border: 0;
+ padding: 1ex 1em;
+}
+div#header p {
+ margin: 0;
+ color: black;
+ font-size: smaller;
+}
+
+h1 {
+ margin: 0.75ex 0em;
+ color: black;
+}
+
+/* Navigation */
+
+div#nav {
+ position: fixed;
+ top: 1.5ex;
+ right: 0;
+}
+
+div#nav a,
+div#edit a {
+ margin: 1ex 0.5em;
+ border: 0;
+ padding: 0.5ex 0.5em;
+ text-decoration: none;
+}
+
+div#nav a:hover,
+div#edit a:hover {
+ background: none;
+ color: black;
+ text-decoration: underline;
+}
+
+/* Contents */
+
+div#contents {
+ display: block;
+ /* position: relative; */
+ margin: 0;
+ border: 0;
+ padding: 2ex 1em;
+}
+
+/* Tables */
+
+table {
+ border-collapse: collapse;
+}
+th {
+ padding: 1ex 1em;
+ border-bottom: 2px solid black;
+}
+td {
+ padding: 1ex 1em;
+ border-bottom: 1px dotted darkgray;
+}
+tbody tr:hover {
+ background: #ffc;
+}
+
+/* Highlight sets in the list of all party records */
+td.set {
+ font-weight: bold
+}
+
+/* Formatting to indicate the same person id as the row above */
+td.same {
+  color: lightgray;
+}
+
+div#add a {
+ display: block;
+ margin-top: 2ex;
+ width: 200px;
+ padding: 6px 0px;
+ background: green;
+ color: #eee;
+ text-align: center;
+ border: 1px solid #608925;
+ text-shadow: 0 -1px 0 rgba(0,0,0,0.8);
+ font-weight: bold;
+ text-transform: uppercase;
+ border-radius: 5px;
+ text-decoration: none;
+ opacity: 0.85;
+}
+div#add a:hover {
+ color: white;
+ background: darkgreen;
+ border-color: #49671d;
+}
+div#add a:active {
+ color: orange;
+ text-shadow: 0 1px 0 rgba(0,0,0,0.8);
+}
+
+
+
+div#edit {
+ display: block;
+ position: absolute;
+ top: 6ex;
+ right: 0;
+}
+
+/* Footer */
+
+div#footer p {
+ color: lightgrey;
+ font-size: xx-small;
+ text-align: center;
+}

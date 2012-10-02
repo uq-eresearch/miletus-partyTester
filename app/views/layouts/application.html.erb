@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Party Tester: <%= yield :heading %></title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+  <div id="header">
+    <p>Party Tester</p>
+    <h1><%= yield :heading %></h1>
+  </div>
+
+  <div id="nav">
+    <%= link_to 'Home', '/' %>
+    <%= link_to 'Test Sets', party_sets_path %>
+    <%= link_to 'Party Records', party_records_path %>
+  </div>
+
+  <div id="contents">
+<%= yield %>
+  </div>
+
+  <div id="footer">
+    <p>&copy; 2012, The University of Queensland (eResearch Lab)</p>
+  </div>
+
+</body>
+</html>

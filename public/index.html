@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Party Tester</title>
+    <link href="/assets/application.css" media="all" rel="stylesheet" type="text/css"/>
+  </head>
+
+  <body>
+    <div id="header">
+      <p>Party Tester</p>
+      <h1>Party Tester</h1>
+    </div>
+
+    <div id="nav">
+      <a href="/party_sets">Test Sets</a>
+      <a href="/party_records">Party Records</a>
+    </div>
+
+    <div id="contents">
+
+      <h2>Introduction</h2>
+
+      <p>This application creates party records for testing the
+      harvesting operation of the <em>ARDC Party Infrastructure</em>.</p>
+
+      <p><em>Party records</em> are created under <em>test
+	sets</em>. Each <em>test set</em> has a unique string that is
+	used in the surname, person identifier and RIF-CS keys for
+	the <em>party records</em> under them. This ensures
+	that <em>party records</em> in each test set can be considered
+	globally unique, which is required by some tests.</p>
+
+      <p>Test sets have a name and notes. These values do not appear
+	in RIF-CS.</p>
+
+      <p>Party records have names, descriptions and a person identifier.
+	That is all that is needed for testing.</p>
+
+      <h2>Getting started</h2>
+
+      <p>Create a new <a href="/party_sets">test set</a> and then
+	create <em>party records</em> under it. Then harvest
+	the <em>party records</em> from the OAI-PMH feed.</p>
+
+      <p>When re-running tests, create another <em>test set</em> so
+	that the new test <em>party records</em> are independent from
+	those previously created.</p>
+
+      <h2>OAI-PMH feed</h2>
+
+      <ul>
+	<li><a href="/oai?verb=Identify">Identify</a></li>
+	<li><a href="/oai?verb=ListSets">ListSets</a></li>
+	<li><a href="/oai?verb=ListMetadataFormats">ListMetadataFormats</a></li>
+	<li><a href="/oai?verb=ListIdentifiers">ListIdentifiers</a></li>
+	<li><a href="/oai?verb=ListRecords&metadataPrefix=oai_dc">ListRecords (Dublin Core)</a></li>
+	<li><a href="/oai?verb=ListRecords&metadataPrefix=rif">ListRecords (RIF-CS)</a></li>
+      </ul>
+
+    </div>
+
+    <div id="footer">
+      <p>&copy; 2012, The University of Queensland (eResearch Lab)</p>
+    </div>
+
+  </body>
+</html>

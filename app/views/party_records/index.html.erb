@@ -1,0 +1,50 @@
+<% content_for(:heading) do "Party records" end %>
+
+<table>
+  <thead>
+    <tr>
+      <th>RIF-CS key</th>
+      <th colspan="2">Name</th>
+      <th>Description</th>
+      <th>Person identifier</th>
+    </tr>
+  </thead>
+
+  <tbody>
+<% 
+  prev_set = nil
+  prev_ident = nil
+  @party_records.each do |party_record|
+    if party_record.partySet_id != prev_set
+      prev_set = party_record.partySet_id
+      set = PartySet.find(prev_set)
+
+%>
+  <tr class="set">
+    <td class="set" colspan="5"><%= link_to set.name, set %></td>
+  </tr>
+<%
+    end
+    if prev_ident == party_record.testident
+      same = ' class="same"'
+    else
+      same = ' class="differnt"'
+    end
+    prev_ident = party_record.testident
+%>
+  <tr>
+    <td><%= link_to party_record.key, party_record %></td>
+    <td><%= party_record.forename %></td>
+    <td><%= party_record.surname %></td>
+    <td><%= party_record.description %></td>
+    <td<%= raw(same) %>><%= party_record.testident %></td>
+  </tr>
+<% end %>
+
+  </tbody>
+</table>
+
+<br />
+
+
+

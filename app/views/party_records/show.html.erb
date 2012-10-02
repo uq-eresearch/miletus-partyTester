@@ -1,0 +1,37 @@
+<% content_for(:heading) do "Party record: #{@party_record.key}" end %>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Key:</b>
+  <%= @party_record.key %>
+</p>
+
+<p>
+  <b>Forename:</b>
+  <%= @party_record.forename %>
+</p>
+
+<p>
+  <b>Surname:</b>
+  <%= @party_record.surname %>
+</p>
+
+<p>
+  <b>Description:</b>
+  <%= @party_record.description %>
+</p>
+
+<p>
+  <b>Notes:</b>
+  <%= @party_record.notes %>
+</p>
+
+<p>
+  <b>Test set:</b>
+  <%= link_to @set.name, party_set_path(@set) %>
+</p>
+
+<div id="edit"><%= link_to 'Edit record', edit_party_record_path(@party_record) %></div>
+
+

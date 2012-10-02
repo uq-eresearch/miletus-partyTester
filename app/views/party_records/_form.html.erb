@@ -1,0 +1,46 @@
+<%= form_for(@party_record) do |f| %>
+  <% if @party_record.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@party_record.errors.count, "error") %> prohibited this party_record from being saved:</h2>
+
+      <ul>
+      <% @party_record.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :forename %><br />
+    <%= f.text_field :forename %>
+  </div>
+  <div class="field">
+    <%= f.label :surname %><br />
+    <%= f.text_field :surname %>
+  </div>
+
+  <div class="field">
+    <%= f.label :description %><br />
+    <%= f.text_field :description %>
+  </div>
+
+  <div class="field">
+    <%= f.label "Person identifier" %><br />
+
+    <%= f.select :testident, PartyRecord.where(:partySet_id => @set.id).order("testident").collect { |r| ["#{r.testident} (#{r.forename} #{r.surname})", r.testident] }.insert(0, ['(new)', '']) %>
+  </div>
+
+  </div>
+
+  <div class="field">
+    <%= f.label :notes %> (does not appear in the RIF-CS)<br />
+    <%= f.text_area :notes %>
+  </div>
+
+  <%= f.hidden_field :partySet_id %><br />
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

@@ -1,0 +1,25 @@
+<% content_for(:heading) do %>Test sets<% end %>
+
+<table>
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Prefix</th>
+    <th>Notes</th>
+  </tr>
+  </thead>
+
+  <tbody>
+<% @party_sets.each do |party_set| %>
+  <tr>
+    <td><%= party_set.name %></td>
+    <td><%= link_to party_set.prefix, party_set %></td>
+    <td><%= party_set.notes %></td>
+  </tr>
+<% end %>
+  </tbody>
+</table>
+
+<div id="add"><%= link_to 'New test set', new_party_set_path %></div>
+
+

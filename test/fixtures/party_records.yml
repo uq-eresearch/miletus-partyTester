@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  surname: MyString
+  forename: MyString
+  testident: MyString
+  notes: MyText
+  partySet_id: 1
+
+two:
+  surname: MyString
+  forename: MyString
+  testident: MyString
+  notes: MyText
+  partySet_id: 1
