@@ -27,7 +27,7 @@ Operation
 
 	rake db:migrate
 
-3. Start Rails server:
+3. Start the Rails server:
 
     rails server -d
 
