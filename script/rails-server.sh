@@ -5,9 +5,11 @@
 # Copyright (C) 2012, The University of Queensland.
 #----------------------------------------------------------------
 
-PIDFILE=tmp/pids/server.pid
+PIDBASEDIR=tmp
+PIDFILE=${PIDBASEDIR}/pids/server.pid
 
-if [ $# -eq 0 ]; then
+if [ $# -eq 0  -o  "$1" = '-h'  -o  "$1" = '--help' ]; then
+    # Show help
     echo "Usage: $0 command"
     echo "Commands:"
     echo "  start   - starts the server"
@@ -18,12 +20,8 @@ if [ $# -eq 0 ]; then
 elif [ $# -eq 1 ]; then
 
     PIDDIR=`dirname $PIDFILE`
-    if [ ! -d "$PIDDIR" ]; then
-	echo "Error: directory not found: $PIDDIR" >&2
-        echo "  Script was not run from project root directory or server" >&2
-        echo "  has never been started before. If starting for the first" >&2
-        echo "  time, use the following command instead:" >&2
-        echo "    rails server -d" >&2
+    if [ ! -d "$PIDBASEDIR" ]; then
+	echo "Error: directory not found: $PIDBASEDIR (wrong directory?)" >&2
 	exit 1
     fi
 
@@ -61,18 +59,18 @@ elif [ $# -eq 1 ]; then
 
 	status)
 	    if [ -f $PIDFILE ]; then
-		echo "Server running"
+		echo "Rails server running (PID=`cat $PIDFILE`)"
 	    else
-		echo "Server stopped"
+		echo "Rails server not running"
 	    fi
 	    ;;
 	*)
-	    echo "Usage error: unknown command: $1" >&2
+	    echo "Usage error: unknown command: $1 (--help for help)" >&2
 	    exit 2
     esac
 
 else
-  echo "Usage error: too many arguments" >&2
+  echo "Usage error: too many arguments (--help for help)" >&2
   exit 2
 fi
 

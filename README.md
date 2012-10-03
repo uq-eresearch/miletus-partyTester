@@ -14,9 +14,10 @@ Requirements
 
 - [Ruby Version Manager](http://rvm.io/)
     - Ruby 1.9.3
+- SQLite
 
-Operation
----------
+Installation
+------------
 
 1. Edit the `lib/partyTester/config.rb` file to set a unique prefix
    string and identifier type for the deployment. Note: this is very
@@ -25,23 +26,32 @@ Operation
 
 2. Create databases:
 
-	rake db:migrate
+    rake db:migrate
 
-3. Start the Rails server:
+Operation
+---------
+
+1. Start the Rails server:
 
     rails server -d
 
-4. Visit the start page _http://localhost:3000/_ and create _test sets_
+2. Visit the start page _http://localhost:3000/_ and create _test sets_
    and _party records_ using the Web interface.
 
-5. Harvest from the OAI-PMH feed.
+3. Harvest from the OAI-PMH feed.
 
-6. Stop the Rails server (the process ID can be found in _tmp/pid/server.pid_):
+4. Stop the Rails server (the process ID can be found in _tmp/pid/server.pid_):
 
-    kill -INT _processID_
+    kill -s SIGINT _processID_
 
-The `bin/rails-server` script can be used to start, stop and restart
-the Rails server.
+### Script for managing the Rails server
+
+A `scripts/rails-server` script is provided to easily start and stop the Rails server.
+
+    scripts/rails-server start
+    scripts/rails-server restart
+    scripts/rails-server stop
+    scripts/rails-server status
 
 Acknowledgements
 ----------------
