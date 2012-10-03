@@ -18,24 +18,30 @@ Requirements
 Operation
 ---------
 
-1. Create databases:
+1. Edit the `lib/partyTester/config.rb` file to set a unique prefix
+   string and identifier type for the deployment. Note: this is very
+   important to ensure that the test records do not clash with test
+   records created by other deployments.
+
+2. Create databases:
 
 	rake db:migrate
 
-2. Start Rails server (using `rails server -d` or using the provided script):
+3. Start Rails server:
 
-    ./bin/rails-server start
+    rails server -d
 
-3. Visit the start page _http://localhost:3000/_ and create _test sets_
+4. Visit the start page _http://localhost:3000/_ and create _test sets_
    and _party records_ using the Web interface.
 
-4. Harvest from the OAI-PMH feed.
+5. Harvest from the OAI-PMH feed.
 
-5. Stop the Rails server (using `kill -INT` on the process ID found in _tmp/pid/server.pid_ or using the provided script):
+6. Stop the Rails server (the process ID can be found in _tmp/pid/server.pid_):
 
-    ./bin/rails-server stop
+    kill -INT <processID>
 
-The `rails-server` script also supports `status` and `restart` operations.
+The `bin/rails-server` script can be used to start, stop and restart
+the Rails server.
 
 Acknowledgements
 ----------------
