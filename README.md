@@ -38,7 +38,7 @@ Operation
 
 6. Stop the Rails server (the process ID can be found in _tmp/pid/server.pid_):
 
-    kill -INT <processID>
+    kill -INT _processID_
 
 The `bin/rails-server` script can be used to start, stop and restart
 the Rails server.
