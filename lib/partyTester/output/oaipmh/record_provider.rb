@@ -11,6 +11,9 @@ module PartyTester
   module Output
     module OAIPMH
 
+      # TODO: refactor this code to merge it with the Ruby on Rails
+      # created model in app/models/party_record.rb
+
       class RecordProvider < OAI::Provider::Base
         
         # Obtain the email address to use as the adminEmail.  Either
