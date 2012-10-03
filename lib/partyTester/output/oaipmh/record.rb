@@ -8,6 +8,7 @@
 # Copyright (C) 2012, The University of Queensland.
 #----------------------------------------------------------------
 
+require 'partyTester/config'
 require 'partyTester/output/oaipmh/set'
 
 module PartyTester
@@ -72,7 +73,7 @@ module PartyTester
   <key>#{key}</key>
   <originatingSource>partyTester</originatingSource>
   <party type="person" dateModified="#{updated_at.utc.iso8601}">
-    <identifier type="AU-QU-test-party">#{testident}</identifier>
+    <identifier type="#{PartyTester::Config::IDENTIFIER_TYPE}">#{testident}</identifier>
     <name type="primary">
       <namePart type="family">#{surname}</namePart>
       <namePart type="given">#{forename}</namePart>

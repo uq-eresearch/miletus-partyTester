@@ -1,13 +1,11 @@
 
 require 'uuid'
+require 'partyTester/config'
 
 class PartyRecordsController < ApplicationController
 
   KEY_STR = ':r'
   TESTIDENT_STR = ':'
-
-  DEFAULT_FORENAME = 'John'
-  DEFAULT_SURNAME = 'Smith'
 
   # GET /party_records
   # GET /party_records.json
@@ -83,14 +81,14 @@ class PartyRecordsController < ApplicationController
     # Default forename
 
     if params[:party_record][:forename].blank?
-      params[:party_record][:forename] = DEFAULT_FORENAME
+      params[:party_record][:forename] = PartyTester::Config::DEFAULT_FORENAME
     end
 
     # Set the surname so that it is globally unique to the test set
 
     surname = params[:party_record][:surname]
     if surname.blank?
-      surname = DEFAULT_SURNAME
+      surname = PartyTester::Config::DEFAULT_SURNAME
     end
     params[:party_record][:surname] =
       surname + '-' + @set.prefix.gsub(/\:/, '-')
