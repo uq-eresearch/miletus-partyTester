@@ -58,7 +58,7 @@ module PartyTester
 
           # Only output description element if it has a value
           if ! description.blank?
-            desc = "<description>#{description}</description>"
+            desc = "<description type=\"full\">#{description}</description>"
           else
             desc = ''
           end
