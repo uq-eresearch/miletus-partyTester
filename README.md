@@ -46,12 +46,12 @@ Operation
 
 ### Script for managing the Rails server
 
-A `scripts/rails-server` script is provided to easily start and stop the Rails server.
+A `scripts/server.sh` script is provided to easily start and stop the Rails server.
 
-    scripts/rails-server start
-    scripts/rails-server restart
-    scripts/rails-server stop
-    scripts/rails-server status
+    scripts/server.sh start
+    scripts/server.sh restart
+    scripts/server.sh stop
+    scripts/server.sh status
 
 Acknowledgements
 ----------------
