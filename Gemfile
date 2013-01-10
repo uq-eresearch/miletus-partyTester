@@ -40,4 +40,4 @@ gem 'jquery-rails'
 #----------------------------------------------------------------
 
 gem 'uuid'
-gem 'oai', :git => 'https://github.com/tjdett/ruby-oai.git', :branch => 'next'
+gem 'oai'

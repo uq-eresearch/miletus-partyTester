@@ -10,11 +10,11 @@ module PartyTester
 
     # Prefix used for generation of unique values (e.g. person identifier,
     # surname and RIF-CS keys).
-    PREFIX_STR = 'AU-QU:TEST:'
+    PREFIX_STR = 'AU-ANON:TEST:'
 
     # Value for the `type` attibute on the RIF-CS `identifier` element
     # for the person identifier.
-    IDENTIFIER_TYPE = 'AU-QU-test-party'
+    IDENTIFIER_TYPE = 'AU-ANON-test-party'
 
     # Defaults when user does not fill in any value in the forms.
 
