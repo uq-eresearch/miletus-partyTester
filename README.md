@@ -12,9 +12,13 @@ party records.
 Requirements
 ------------
 
-- [Ruby Version Manager](http://rvm.io/)
-    - Ruby 1.9.3
+- Ruby (version 1.9.3 or later)
+- Ruby on Rails (version 3.x)
 - SQLite
+
+Recommended:
+
+- [Ruby Version Manager](http://rvm.io/)
 
 Installation
 ------------
@@ -22,18 +26,18 @@ Installation
 1. Edit the `lib/partyTester/config.rb` file to set a unique prefix
    string and identifier type for the deployment. Note: this is very
    important to ensure that the test records do not clash with test
-   records created by other deployments.
+   records created by other contributors.
 
 2. Create databases:
 
-    rake db:migrate
+        rake db:migrate
 
 Operation
 ---------
 
 1. Start the Rails server:
 
-    rails server -d
+      rails server -d
 
 2. Visit the start page _http://localhost:3000/_ and create _test sets_
    and _party records_ using the Web interface.
@@ -42,7 +46,7 @@ Operation
 
 4. Stop the Rails server (the process ID can be found in _tmp/pid/server.pid_):
 
-    kill -s SIGINT _processID_
+      kill -s SIGINT _processID_
 
 ### Script for managing the Rails server
 
@@ -52,6 +56,12 @@ A `scripts/server.sh` script is provided to easily start and stop the Rails serv
     scripts/server.sh restart
     scripts/server.sh stop
     scripts/server.sh status
+
+Contact
+-------
+
+For more information, please contact Hoylen Sue <h.sue@uq.edu.au>
+or [The University of Queensland eResearch Lab](http://itee.uq.edu.au/~eresearch/).
 
 Acknowledgements
 ----------------
