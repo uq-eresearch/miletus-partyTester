@@ -31,10 +31,8 @@
     <%= f.select :testident, PartyRecord.where(:partySet_id => @set.id).order("testident").collect { |r| ["#{r.testident} (#{r.forename} #{r.surname})", r.testident] }.insert(0, ['(new)', '']) %>
   </div>
 
-  </div>
-
   <div class="field">
-    <%= f.label :notes %> (does not appear in the RIF-CS)<br />
+    <%= f.label :notes, 'Notes (does not appear in the RIF-CS)' %><br />
     <%= f.text_area :notes %>
   </div>
 
