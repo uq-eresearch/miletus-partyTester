@@ -12,10 +12,16 @@ party records.
 Requirements
 ------------
 
+Mandatory:
+
 - Ruby (version 1.9.3 or later)
-- Ruby on Rails (version 3.x)
-- Bundler
+- Ruby on Rails (version 3.2.11 or later)
+- [Bundler](http://gembundler.com)
 - SQLite
+
+Optional:
+
+- [Ruby Version Manager (RVM)](https://rvm.io)
 
 Installation
 ------------
