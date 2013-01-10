@@ -14,11 +14,8 @@ Requirements
 
 - Ruby (version 1.9.3 or later)
 - Ruby on Rails (version 3.x)
+- Bundler
 - SQLite
-
-Recommended:
-
-- [Ruby Version Manager](http://rvm.io/)
 
 Installation
 ------------
@@ -28,39 +25,63 @@ Installation
    important to ensure that the test records do not clash with test
    records created by other contributors.
 
-2. Create databases:
+2. Install gems:
+
+        bundle install
+
+3. Create database:
 
         rake db:migrate
 
 Operation
 ---------
 
-1. Start the Rails server:
-
-      rails server -d
+1. Start the Rails server (see below).
 
 2. Visit the start page _http://localhost:3000/_ and create _test sets_
-   and _party records_ using the Web interface.
+   and _party records_ using the Web interface. Replace "localhost" with
+   the correct hostname, if necessary.
 
-3. Harvest from the OAI-PMH feed.
+3. Harvest from the OAI-PMH feed at _http://localhost:3000/oai_
 
-4. Stop the Rails server (the process ID can be found in _tmp/pid/server.pid_):
+4. Stop the Rails server (see below).
 
-      kill -s SIGINT _processID_
+### Managing the Rails server
 
-### Script for managing the Rails server
+#### Starting the rail server
 
-A `scripts/server.sh` script is provided to easily start and stop the Rails server.
+The rails server can be started using:
+
+    rails server -d
+
+Or use the helper script:
 
     scripts/server.sh start
-    scripts/server.sh restart
+
+#### Stopping the rails server
+
+The rails server can be stopped using:
+
+    kill -s SIGINT _processID_
+
+Where the process ID can be found in `tmp/pid/server.pid`.
+
+Or use the helper script:
+
     scripts/server.sh stop
+
+#### Restarting the rails server
+
+    scripts/server.sh restart
+
+#### Showing the status of the rails server
+
     scripts/server.sh status
 
 Contact
 -------
 
-For more information, please contact Hoylen Sue <h.sue@uq.edu.au>
+For more information, please contact [Hoylen Sue](mailto:h.sue@uq.edu.au)
 or [The University of Queensland eResearch Lab](http://itee.uq.edu.au/~eresearch/).
 
 Acknowledgements
