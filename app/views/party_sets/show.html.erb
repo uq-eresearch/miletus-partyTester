@@ -34,6 +34,13 @@
   </tr>
 <% end %>
   </tbody>
+
+  <tfoot>
+    <tr>
+      <td colspan="5"><%= pluralize(@set_records.size, 'party record') %></td>
+    </tr>
+  </tfoot>
+
 </table>
 
 <div id="add"><%= link_to 'New party record', new_party_record_path(:set => @party_set.id) %></div>

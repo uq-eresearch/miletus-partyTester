@@ -18,6 +18,12 @@
   </tr>
 <% end %>
   </tbody>
+
+  <tfoot>
+    <tr>
+      <td colspan="3"><%= pluralize(@party_sets.size, 'test set') %></td>
+    </tr>
+  </tfoot>
 </table>
 
 <div id="add"><%= link_to 'New test set', new_party_set_path %></div>

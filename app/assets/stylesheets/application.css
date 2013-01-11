@@ -37,7 +37,7 @@ h1 {
 /* Navigation */
 
 div#nav {
- position: fixed;
+ position: absolute;
  top: 1.5ex;
  right: 0;
 }
@@ -82,6 +82,13 @@ td {
 }
 tbody tr:hover {
  background: #ffc;
+}
+
+tfoot td {
+ padding: 0.25ex 1em;
+ border-bottom: 1px solid black;
+ color: darkgray;
+ text-align: right;
 }
 
 /* Highlight sets in the list of all party records */

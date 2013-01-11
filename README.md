@@ -6,7 +6,8 @@ Overview
 
 Simple Web application to create RIF-CS _party records_ for testing
 the ARDC Party Infrastructure (i.e. Trove). This application was
-created to support the [test plan](doc/ardc-party-infrastructure-test-plan.md).
+created to support the [ARDC Party Infrastructure Harvesting Test
+Plan](miletus-partyTester/doc/ardc-party-infrastructure-test-plan.md).
 
 The party records are created with unique identifiers and surnames to
 ensure that test results are not influenced by other data (possibly
@@ -65,6 +66,10 @@ Optional:
 Installation
 ------------
 
+0. If using RVM, create a project .rvmrc file:
+
+        rvm --rvmrc --create ruby-1.9.3@partyTester
+
 1. Edit the `lib/partyTester/config.rb` file to set a unique prefix
    base string and identifier type for the deployment. Note: this is
    very important to ensure that the test records do not clash with
@@ -115,7 +120,7 @@ Or use the helper script:
 
     script/server.sh stop
 
-#### Restarting the rails server
+#### Other functions of the helper script
 
 Run the helper script with `-h` (or `--help`) for more options.
 
