@@ -1,13 +1,52 @@
 Party Tester
 ============
 
-Simple Web application to create party records for testing.
+Overview
+--------
+
+Simple Web application to create RIF-CS _party records_ for testing
+the ARDC Party Infrastructure (i.e. Trove). This application was
+created to support the [test plan](doc/ardc-party-infrastructure-test-plan.md).
 
 The party records are created with unique identifiers and surnames to
 ensure that test results are not influenced by other data (possibly
 from previous runs of the test), since the ARDC Party Infrastructure
 does not allow the deleting of previously harvested and processed
 party records.
+
+Description
+-----------
+
+### How it works
+
+Party Tester allows _test sets_ and _party records_ to be created.
+
+The _test sets_ are used to isolate its _party records_ from other
+_party records_ that might already be in Trove. Those other _party
+records_ might come from other _test sets_ (from this or other
+deployment of the Party Tester) as well as from other
+contributors. Each _test set_ has an internal _prefix_ string that is
+guaranteed to be unique within the deployment of Party Tester; and if
+the _prefix base string_ is configured properly, it will be globally
+unique.
+
+The _party records_ uses the prefix of the _test set_ they belong
+to. The prefix appears at the beginning of the RIF-CS key, at the
+beginning of a local identifier, and is appended to the surname. This
+ensures that the surnames are globally unique, which allows new _party
+records_ to be treated by Trove's automatic matching rules as new
+parties.
+
+The form to create a new _party record_ allows a new local identifier
+to be generated, or an existing local identifier (from the same _test
+set_) to be reused. This feature can be used to create multiple _party
+records_ for the same person, to test the effect of sanity checks that
+are performed on the forename and surname.
+
+Using new _test sets_, new _party records_ can be guaranteed to be
+parties that Trove has not seen before. The RIF-CS key and surname
+will be unique, so the automatic matching algorithm will treat it as a
+new party.
 
 Requirements
 ------------
@@ -27,9 +66,9 @@ Installation
 ------------
 
 1. Edit the `lib/partyTester/config.rb` file to set a unique prefix
-   string and identifier type for the deployment. Note: this is very
-   important to ensure that the test records do not clash with test
-   records created by other contributors.
+   base string and identifier type for the deployment. Note: this is
+   very important to ensure that the test records do not clash with
+   test records created by other deployments or contributors.
 
 2. Install gems:
 
@@ -62,27 +101,25 @@ The rails server can be started using:
 
 Or use the helper script:
 
-    scripts/server.sh start
+    script/server.sh start
 
 #### Stopping the rails server
 
 The rails server can be stopped using:
 
-    kill -s SIGINT _processID_
+    kill -s SIGINT processID
 
-Where the process ID can be found in `tmp/pid/server.pid`.
+Where the _processID_ can be found in the file `tmp/pid/server.pid`.
 
 Or use the helper script:
 
-    scripts/server.sh stop
+    script/server.sh stop
 
 #### Restarting the rails server
 
-    scripts/server.sh restart
+Run the helper script with `-h` (or `--help`) for more options.
 
-#### Showing the status of the rails server
-
-    scripts/server.sh status
+    script/server.sh --help
 
 Contact
 -------
