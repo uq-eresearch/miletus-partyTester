@@ -7,7 +7,7 @@ Overview
 Simple Web application to create RIF-CS _party records_ for testing
 the ARDC Party Infrastructure (i.e. Trove). This application was
 created to support the [ARDC Party Infrastructure Harvesting Test
-Plan](miletus-partyTester/doc/ardc-party-infrastructure-test-plan.md).
+Plan](https://github.com/uq-eresearch/miletus-partyTester/blob/master/doc/ardc-party-infrastructure-test-plan.md).
 
 The party records are created with unique identifiers and surnames to
 ensure that test results are not influenced by other data (possibly
@@ -17,8 +17,6 @@ party records.
 
 Description
 -----------
-
-### How it works
 
 Party Tester allows _test sets_ and _party records_ to be created.
 
@@ -49,6 +47,9 @@ parties that Trove has not seen before. The RIF-CS key and surname
 will be unique, so the automatic matching algorithm will treat it as a
 new party.
 
+The _party records_ are published as an OAI-PMH feed of RIF-CS records
+for Trove to harvest.
+
 Requirements
 ------------
 
@@ -66,20 +67,22 @@ Optional:
 Installation
 ------------
 
-0. If using RVM, create a project .rvmrc file:
+1. (Optional) If using RVM, create a project .rvmrc file:
 
         rvm --rvmrc --create ruby-1.9.3@partyTester
 
-1. Edit the `lib/partyTester/config.rb` file to set a unique prefix
-   base string and identifier type for the deployment. Note: this is
-   very important to ensure that the test records do not clash with
-   test records created by other deployments or contributors.
+2. Edit the `lib/partyTester/config.rb` file to set a unique prefix
+   base string and identifier type for the deployment.
 
-2. Install gems:
+   Note: this is very important to ensure that the test records do not
+   clash with test records created by other deployments or
+   contributors.
+
+3. Install gems:
 
         bundle install
 
-3. Create database:
+4. Create database:
 
         rake db:migrate
 
